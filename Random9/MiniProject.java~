@@ -1,0 +1,61 @@
+/* 
+AUTHOR Rhys Copperthwaite
+
+The Following Program Of Which I Have Created Is For My Mini-Project Part Of My Coursework.  
+In The Following Program I Have Got It To Output A Music Related Message Which Is "What is the better known stage name of Robyn Fenty?!"
+The User Will Then Be Able To enter A Message.
+After This The User Is Given A Random Score And Then A Message Is Printed Out Which Says: "User Answer", That's An Intriguing Answer! Score Awarded: "Random Number Received."
+User Answer is what is imputed by the user and Random Number Received is the random number given to the user.
+once this has been printed out to the screen the program is finished.
+*/
+
+import javax.swing.*; // import the swing library for I/O
+import java.util.Random; //import the library for random number
+
+class MiniProject //this is where the class file name is stated.
+{
+    public static void main (String[] param)
+    { 
+       // We want to print out the message Which Asks The User A Question 
+       askMusicQuestion();
+       System.exit(0);
+    }
+	
+    public static String askMusicQuestion()
+    {
+       String music = 
+		JOptionPane.showInputDialog("What is the better known stage name of Robyn Fenty?");
+	
+	   JOptionPane.showMessageDialog(null, music + ", That's An Intriguing Answer!");
+
+	if (music.equals("rihanna") | music.equals("Rihanna"))
+	{
+	 JOptionPane.showMessageDialog(null, "Your Answer Is Correct!");    
+	GetRandomNumber();
+	}
+	else
+	{
+	 JOptionPane.showMessageDialog(null, "Your Answer Is Incorrect!");
+	askMusicQuestion();
+	}
+	return music;
+}
+
+    public static int GetRandomNumber()	
+    {
+	Random  bigdice = new Random(); 
+	   
+	int diceroll = bigdice.nextInt(6) + 1; 
+
+	if (diceroll <=5 && diceroll >=1)
+	{ 
+		diceroll = diceroll + 3;
+	}
+	else if (diceroll == 6)
+	{
+		diceroll = diceroll + 6;
+	}
+   JOptionPane.showMessageDialog(null, "Your score is " + diceroll);
+	return diceroll;   
+   } 
+}
